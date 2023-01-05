@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head'); %>
+</head>
+<body class="container">
+    <header>
+        <%- include('../partials/header'); %>
+    </header>
+
+    <main>
+        <div class="jumbotron">
+            <h1>Produk</h1>
+            <p>Tugas UAS CRUD (Create, Read, Update, Delete)</p>
+        </div>
+
+        <div class="row">
+
+            <% products.forEach(function(product) { %>
+            <div class="col-sm-6 mb-3">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title"><%= product.name %></h5>
+                    <p class="card-text"><%= product.description.slice(0, 10)+'...' %></p>
+                    <p>Rp. <%= product.price %></p>
+                    <p>kategori: <%= product.category %></p>
+                    <p>Ditambahkan pada: <%= product.created_at %></p>
+                    <a href="/read/<%= product.slug_id %>" class="btn btn-primary">Lihat</a>
+                    </div>
+                </div>
+            </div>
+            <% }); %>
+
+        </div>
+
+    </main>
+
+    <footer>
+        <%- include('../partials/footer'); %>
+    </footer>
+
+</body>
+</html>
